@@ -3,6 +3,7 @@
 import unittest
 from src.stack import Stack
 
+
 class TestStack(unittest.TestCase):
     """
     Класс тестирующий класс Stack
@@ -22,4 +23,3 @@ class TestStack(unittest.TestCase):
         self.assertEqual(stack.top.next_node.data, 'data2')
         self.assertEqual(stack.top.next_node.next_node.data, 'data3')
         self.assertEqual(stack.top.next_node.next_node.next_node, None)
-
