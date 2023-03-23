@@ -43,3 +43,17 @@ class Queue:
                 tail = self.tail  # сохраняем текущий хвост
                 self.tail = Node(data, None)  # наращиваем хвост
                 tail.next_node = self.tail  # предыдущий хвост ссылается на новый
+
+    def dequeue(self):
+        """
+        Метод для удаления элемента из очереди. Возвращает данные удаленного элемента
+        :return: данные удаленного элемента
+        """
+        if self.head is None and self.tail is None:
+            return None
+        if self.head is not None:
+            pop_q = self.head
+            if self.head.data == self.tail.data:
+                self.tail = None
+            self.head = self.head.next_node
+            return pop_q.data
