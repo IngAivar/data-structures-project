@@ -32,3 +32,18 @@ class TestLinkedList(unittest.TestCase):
         self.LinkedList.insert_beginning({'id': 0})
         self.assertEqual(self.LinkedList.head.data, {'id': 0})
         assert str(self.LinkedList) == "{'id': 0} -> {'id': 1} -> {'id': 2} -> {'id': 3} -> None"
+
+    def test_to_list(self):
+        linked_list = LinkedList()
+        linked_list.insert_beginning({2: 2})
+        linked_list.insert_beginning({1: 1})
+        linked_list.insert_at_end({3: 3})
+        linked_list.insert_at_end({4: 4})
+        self.assertEqual(linked_list.to_list(), [{1: 1}, {2: 2}, {3: 3}, {4: 4}])
+
+    def test_get_data_by_id(self):
+        linked_list = LinkedList()
+        linked_list.insert_beginning([1, 1])
+        self.assertEqual(linked_list.get_data_by_id(1), None)
+        linked_list.insert_beginning({'id': 2})
+        self.assertEqual(linked_list.get_data_by_id(2), {'id': 2})
